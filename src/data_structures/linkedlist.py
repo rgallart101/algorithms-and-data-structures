@@ -120,6 +120,9 @@ class LinkedList:
         # Add one to the LL length
         self._len += 1
 
+    def size(self):
+        return self._len
+
     @staticmethod
     def reverse(linked_list):
         first = linked_list._head

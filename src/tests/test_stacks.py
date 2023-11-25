@@ -1,11 +1,11 @@
 from data_structures import (
-    Stack,
+    LinkedListStack,
     Node,
     create_list
 )
 
 def test_stacks():
-    stack = Stack()
+    stack = LinkedListStack()
 
     node = Node(0)
     stack.push(node=node)
@@ -22,12 +22,12 @@ def test_stacks():
     node = stack.peek()
     assert 2 == node._value
 
-    node = stack.pull()
+    node = stack.pop()
     assert 2 == node._value
     assert [0, 1] == create_list(stack._data)
     assert 2 == stack._data._len
 
-    stack.pull()
-    stack.pull()
+    stack.pop()
+    stack.pop()
     assert stack._data._tail == stack._data._head == None
     assert 0 == stack._data._len
