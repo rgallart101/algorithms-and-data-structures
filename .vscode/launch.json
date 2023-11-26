@@ -10,7 +10,8 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "justMyCode": true
+      "justMyCode": true,
+      "env": {"PYTHONPATH": "src/algorithms:src/data_structures"}
     },
     {
       "name": "Python: LinkedList",

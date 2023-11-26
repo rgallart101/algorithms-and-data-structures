@@ -1,39 +1,44 @@
-from .utils import create_list
 from .node import Node
 from .linkedlist import LinkedList
 
 class LinkedListStack:
     def __init__(self) -> None:
-        self._data = LinkedList()
+        self._items = LinkedList()
 
-    def push(self, node: Node):
-        self._data.add_with_node(self._data._tail, node)
+    def push(self, item):
+        node = Node(item)
+        self._items.add_with_node(self._items._tail, node)
 
     def pop(self):
-        return self._data.remove_tail()
+        node = self._items.remove_tail()
+        return node._value
 
     def peek(self):
-        return self._data.peek()
+        node = self._items.peek()
+        return node._value
 
     def size(self):
-        return self._data.size()
+        return self._items.size()
+
+    def is_empty(self):
+        return self.size() == 0
 
 
 class NativeStack:
     def __init__(self) -> None:
-        self.items = []
+        self._items = []
 
     def is_empty(self):
-        return self.items == []
+        return self._items == []
 
     def push(self, item):
-        self.items.append(item)
+        self._items.append(item)
 
     def pop(self):
-        return self.items.pop()
+        return self._items.pop()
 
     def peek(self):
-        return self.items[self.size() - 1]
+        return self._items[self.size() - 1]
 
     def size(self):
-        return len(self.items)
+        return len(self._items)

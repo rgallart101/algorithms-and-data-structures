@@ -1,4 +1,3 @@
-from .utils import create_list
 from .node import Node
 from .linkedlist import LinkedList
 
