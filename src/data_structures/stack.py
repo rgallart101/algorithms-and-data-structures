@@ -1,5 +1,6 @@
-from .node import Node
 from .linkedlist import LinkedList
+from .node import Node
+
 
 class LinkedListStack:
     def __init__(self) -> None:

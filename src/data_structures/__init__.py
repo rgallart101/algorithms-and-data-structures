@@ -1,6 +1,5 @@
-from .node import Node
 from .linkedlist import LinkedList
-from .stack import LinkedListStack, NativeStack
+from .node import Node
 from .queue import Queue
-
+from .stack import LinkedListStack, NativeStack
 from .utils import create_list

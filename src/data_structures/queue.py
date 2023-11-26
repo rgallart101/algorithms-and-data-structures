@@ -1,5 +1,5 @@
-from .node import Node
 from .linkedlist import LinkedList
+from .node import Node
 
 
 class Queue:

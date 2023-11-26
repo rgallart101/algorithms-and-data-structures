@@ -63,7 +63,7 @@ class LinkedList:
 
         return node
 
-    def peek(self, tail: bool=True) -> Node:
+    def peek(self, tail: bool = True) -> Node:
         if tail:
             if self._tail:
                 return Node(self._tail._value)
@@ -79,7 +79,7 @@ class LinkedList:
     def append(self, node: Node) -> None:
         self.insert(node=node, position=self._len)
 
-    def insert(self, node: Node, position: int=0) -> None:
+    def insert(self, node: Node, position: int = 0) -> None:
         if not self._head:
             self._head = node
             self._tail = node

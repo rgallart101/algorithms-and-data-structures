@@ -3,6 +3,7 @@ from data_structures import (
     LinkedListStack,
 )
 
+
 def balanced_checker(s, symbol_string):
     balanced = True
     index = 0
@@ -27,11 +28,11 @@ def balanced_checker(s, symbol_string):
     return False
 
 
-def matches(open, close):
+def matches(opening, closing):
     opens = "[({"
     closers = "])}"
 
-    return opens.index(open) == closers.index(close)
+    return opens.index(opening) == closers.index(closing)
 
 
 def balanced_checker_native(symbol_string):
