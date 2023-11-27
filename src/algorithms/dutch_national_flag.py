@@ -3,45 +3,24 @@ def dutch_flag_partition(list_of_numbers: list[int], pivot_position: int) -> Non
     The list_of_numbers will be sorted around the pivot position so that:
       - elements smaller will be moved to the left
       - elements bigger will be moved to the right
-      - elements equal to the pivot will be in the middle
     :param list_of_numbers:
     :param pivot_position:
     :return: Nothing
     """
-    first_pivot = last_pivot = 0
-    bigger_found = False
-    pivot_found = False
     pivot = list_of_numbers[pivot_position]
-    index = 0
 
-    while index < len(list_of_numbers):
-        if list_of_numbers[index] < pivot:
-            if pivot_found:
-                list_of_numbers[first_pivot], list_of_numbers[index] = list_of_numbers[index], list_of_numbers[
-                    first_pivot]
-                first_pivot += 1
-                if bigger_found:
-                    list_of_numbers[last_pivot+1], list_of_numbers[index] = list_of_numbers[index], list_of_numbers[
-                        last_pivot+1]
-                    last_pivot += 1
-                else:
-                    last_pivot = index
-        elif list_of_numbers[index] > pivot:
-            if not bigger_found:
-                bigger_found = True
-        else:
-            if not pivot_found:
-                first_pivot = last_pivot = index
-                pivot_found = True
-            else:
-                if bigger_found:
-                    list_of_numbers[index-1], list_of_numbers[index] = list_of_numbers[index], list_of_numbers[
-                        index-1]
-                    last_pivot += 1
-                else:
-                    last_pivot = index
+    # moving smaller elements to the left
+    smaller = 0
+    for i in range(len(list_of_numbers)):
+        if list_of_numbers[i] < pivot:
+            list_of_numbers[i], list_of_numbers[smaller] = list_of_numbers[smaller], list_of_numbers[i]
+            smaller += 1
 
-        index += 1
+    larger = len(list_of_numbers) - 1
+    for i in reversed(range(len(list_of_numbers))):
+        if list_of_numbers[i] > pivot:
+            list_of_numbers[i], list_of_numbers[larger] = list_of_numbers[larger], list_of_numbers[i]
+            larger -= 1
 
 # def dutch_flag_partition(list_of_numbers: list[int], pivot_position: int) -> None:
 #     """
@@ -70,3 +49,10 @@ def dutch_flag_partition(list_of_numbers: list[int], pivot_position: int) -> Non
 #             high -= 1
 #         else:
 #             mid += 1
+
+
+if __name__ == "__main__":
+    l = [0, 2, 3, 1, 0, 2, 3, 2, 1]
+    pos = 3
+    dutch_flag_partition(l, pos)
+    print(l)
